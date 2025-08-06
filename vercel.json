@@ -7,22 +7,26 @@
       "use": "@vercel/node"
     },
     {
-      "src": "**/*.html",
+      "src": "index.html",
       "use": "@vercel/static"
     },
     {
-      "src": "**/*.css",
+      "src": "style.css",
       "use": "@vercel/static"
     },
     {
-      "src": "**/*.js",
+      "src": "js/**/*.js",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "/api/$1.js"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
     },
     {
       "src": "/(.*)",
@@ -32,9 +36,5 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["sin1"],
-  "github": {
-    "autoAlias": true,
-    "autoJobCancelation": true
-  }
+  "regions": ["sin1"]
 }
